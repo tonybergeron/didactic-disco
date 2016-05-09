@@ -1,0 +1,14 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width')
+    include ./partials/favicon.pug
+    title Dashboard
+    link(type='text/css', rel='stylesheet', media='all', href='#{buildFilesUrl}/common.style.css')
+    link(type='text/css', rel='stylesheet', media='all', href='#{buildFilesUrl}/dashboard.style.css')
+  body
+    | Dashboard
+    #app
+    script(src='#{buildFilesUrl}/common.bundle.js')
+    script(src='#{buildFilesUrl}/dashboard.bundle.js')

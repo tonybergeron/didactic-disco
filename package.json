@@ -1,0 +1,46 @@
+{
+  "name": "Dash",
+  "version": "0.0.1",
+  "description": "dashboard for wall",
+  "repository": "",
+  "config": {
+    "buildDir": "./build",
+    "devPort": 3001,
+    "assetPort": 2992
+  },
+  "devConfig": {
+    "buildAssets": "http://localhost:2992/assets",
+    "dbLocation": "mongodb://localhost/dash"
+  },
+  "scripts": {
+    "start": "nodemon ./server/server.js",
+    "start-server": "NODE_ENV=development npm run start"
+  },
+  "dependencies": {
+    "babel-core": "^6.7.7",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "connect-mongo": "^1.1.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "lodash": "^4.11.1",
+    "mongoose": "^4.4.14",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.9.2",
+    "normalize.css": "^3.0.3",
+    "passport": "^0.3.2",
+    "pug": "^2.0.0-alpha6",
+    "webpack": "^1.13.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-plugin-react": "^5.0.1"
+  },
+  "author": "Tony Bergeron",
+  "engines": {
+    "node": "5.x"
+  }
+}

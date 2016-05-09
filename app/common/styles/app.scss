@@ -1,0 +1,17 @@
+//IMPORTANT: NO CSS IN THIS FILE
+
+// NORMALIZE
+@import "~normalize.css/normalize.css"; // -
+
+// BASE TAG MODIFICATIONS
+// ------------------------------
+@import "./base/html-tags"; // -
+
+// MAPPINGS
+// ------------------------------
+@import "./base/color-mappings";
+@import "./base/typography-mappings";
+
+// DECORATING CLASSES
+// ------------------------------
+@import "./base/headers";
