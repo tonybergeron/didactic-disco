@@ -21,5 +21,5 @@ module.exports = (app) => {
   app.all(endpoints.APISECURE.authRequiredPath, authenticationMiddleware.hasApiAccess)
 
   app.get(endpoints.APISECURE.users, users.fetchUsersList)
-  app.get(endpoints.APISECURE.usersById, users.fetchUserById)
+  // app.get(endpoints.APISECURE.usersById, users.fetchUserById)
 }

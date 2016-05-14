@@ -8,7 +8,7 @@ var config = {
   entry: base.entry,
   output: {
     path: base.output.path,
-    publicPath: pkg.devConfig.buildAssets + base.output.publicPath,
+    publicPath: pkg.devConfig.buildProxy + base.output.publicPath,
     filename: base.output.filename
   },
   cache: true,
