@@ -37,6 +37,9 @@ var config = {
         path.join(__dirname, '../node_modules')
       ],
       loader: ExtractTextPlugin.extract('css-loader')
+    }, {
+      include: /\.json$/,
+      loaders: ['json-loader']
     }]
   },
   postcss: [

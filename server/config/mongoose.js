@@ -1,7 +1,6 @@
 'use strict'
 
 var mongoose = require('mongoose')
-var autoIncrement = require('mongoose-auto-increment')
 var secrets = require('./secrets')
 var logger = require('../middleware/logger')
 var http = require('http')
@@ -20,7 +19,11 @@ let connect = () => {
 }
 
 let db = mongoose.connection
+
+/*
+var autoIncrement = require('mongoose-auto-increment')
 autoIncrement.initialize(db) // Initialize connection when it is available, use it
+*/
 
 db.on('connecting', () => {
   logger.info('connecting to MongoDB...')

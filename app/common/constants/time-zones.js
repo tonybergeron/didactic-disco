@@ -1,0 +1,7 @@
+export const SEATTLE = 'America/Los_Angeles'
+export const CHICAGO = 'America/Chicago'
+export const TORONTO = 'America/Toronto'
+export const NEW_YORK = 'America/New_York'
+export const LONDON = 'Europe/London'
+export const GREENLAND = 'America/Godthab'
+export const CAPE_VERDE = 'Atlantic/Cape_Verde'

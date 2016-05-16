@@ -20,7 +20,7 @@ module.exports = (app, passport) => {
   app.use(compression())
 
   // process.env.PORT lets Heroku add correct port within Heroku Environment
-  app.set('port', (process.env.PORT || pkg.config.devPort || 8001))
+  app.set('port', (process.env.PORT || pkg.devConfig.port || 8001))
 
   // X-Powered-By header has no functional value.
   // Keeping it makes it easier for an attacker to build the site's profile

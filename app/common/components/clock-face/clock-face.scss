@@ -1,0 +1,81 @@
+.clock-face-component {
+  display: inline-block;
+  text-align: center;
+
+  .clock-center {
+    display: inline-block;
+    padding: 20px 15px 15px;
+
+    h4 {
+      margin-top: 15px;
+    }
+
+    .circle {
+      width: 240px;
+      height: 240px;
+      position: relative;
+      border: 12px solid #000;
+      border-radius: 50%;
+      background: url(http://i.imgur.com/LQ4S51k.png);
+      background-size: 240px 240px;
+      background-repeat: no-repeat;
+    }
+
+    .face {
+      width: 100%;
+      height: 100%;
+    }
+
+    .face:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      margin: -6px 0 0 -6px;
+      background: #000;
+      border-radius: 6px;
+      content: "";
+      display: block;
+    }
+
+
+    .hour {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -4px 0 -4px -25%;
+      padding: 4px 0 4px 25%;
+      background: #000;
+      transform-origin: 100% 50%;
+    }
+
+    .minute {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -40% -3px 0;
+      padding: 40% 3px 0;
+      background: #000;
+      transform-origin: 50% 100%;
+    }
+
+    .second {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -40% -1px 0 0;
+      padding: 40% 1px 0;
+      background: #D40000;
+      transform-origin: 50% 100%;
+    }
+
+  }
+
+}
