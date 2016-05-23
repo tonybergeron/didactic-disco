@@ -1,5 +1,7 @@
 import React from 'react'
-import ClockComponent from 'common/components/clock/clock'
+import ClockComponent from 'dashboard/components/clock-component/clock-component'
+
+import './index.scss'
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -8,8 +10,8 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1><ClockComponent/></h1>
+      <div className="index">
+        <ClockComponent/>
       </div>
     )
   }

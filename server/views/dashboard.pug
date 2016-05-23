@@ -3,12 +3,10 @@ html.no-js(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width')
-    include ./partials/favicon.pug
-    title Dashboard
-    link(type='text/css', rel='stylesheet', media='all', href='#{buildFilesUrl}/common.style.css')
-    link(type='text/css', rel='stylesheet', media='all', href='#{buildFilesUrl}/dashboard.style.css')
+    title Clock
+    link(type='text/css', rel='stylesheet', media='all', href='assets/common.style.css')
+    link(type='text/css', rel='stylesheet', media='all', href='assets/dashboard.style.css')
   body
-    | Dashboard
     #app
-    script(src='#{buildFilesUrl}/common.bundle.js')
-    script(src='#{buildFilesUrl}/dashboard.bundle.js')
+    script(src='assets/common.bundle.js')
+    script(src='assets/dashboard.bundle.js')
