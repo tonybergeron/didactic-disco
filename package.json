@@ -2,10 +2,9 @@
   "name": "didactic-disco",
   "version": "0.0.1",
   "description": "it's 4 o'clock somewhere",
-  "repository": "",
+  "repository": "https://github.com/tonybergeron/didactic-disco",
   "config": {
-    "buildDir": "./build",
-    "devPort": 3001
+    "buildDir": "./build"
   },
   "devConfig": {
     "port": 3001,
@@ -18,6 +17,7 @@
     "pretest": "npm run lint",
     "test": "echo 'no tests available' && exit 1",
     "bundle": "NODE_ENV=production webpack --config webpack/config.dist.js --progress",
+    "server": "NODE_ENV=production forever ./server/server.js",
     "express-dev-server": "nodemon ./server/server.js",
     "webpack-dev-server": "webpack-dev-server --colors --progress --hot --inline --config  ./webpack/config.dev.js --port 2992",
     "start": "NODE_ENV=development parallelshell 'npm run express-dev-server' 'npm run webpack-dev-server'"
@@ -29,6 +29,7 @@
     "express": "^4.13.4",
     "express-http-proxy": "^0.6.0",
     "express-session": "^1.13.0",
+    "forever": "^0.15.1",
     "history": "^2.1.1",
     "lodash": "^4.11.1",
     "moment-timezone": "^0.5.4",

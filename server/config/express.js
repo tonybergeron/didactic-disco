@@ -11,6 +11,7 @@ var path = require('path')
 var secrets = require('./secrets')
 
 var logger = require('../utils/logger')
+var proxyUtil = require('../utils/proxy-util')
 var nodeEnv = process.env.NODE_ENV || 'production'
 
 const ONE_DAY = 86400000 // Cache Static Content a maximum of 1 day in seconds
@@ -97,7 +98,7 @@ module.exports = (app, passport) => {
   logger.info('--------------------------')
   logger.info('===> 🎬  Starting Server . . .')
   logger.info('===> 💈  Environment: ' + nodeEnv)
-  logger.info('===> 📦  Build Files URL: ' + (nodeEnv === 'development' ? pkg.devConfig.buildAssets : process.env.BUILD_FILES_URL))
+  logger.info('===> 📦  Build Files URL: ' + proxyUtil.getBuildProxyUrl())
   if (nodeEnv === 'production') {
     logger.info('===> 🔐  Note: In order for authentication to work in production')
     logger.info('===>          you will need a secure HTTPS connection')

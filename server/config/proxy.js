@@ -1,15 +1,13 @@
-'use strict';
+'use strict'
 
-var pkg = require('../../package.json');
-var proxy = require('express-http-proxy');
+var proxy = require('express-http-proxy')
+var proxyUtil = require('../utils/proxy-util.js')
 
-var nodeEnv = process.env.NODE_ENV || 'production';
-var buildFilesProxy = nodeEnv === 'development' ? pkg.devConfig.buildProxy : process.env.BUILD_FILES_URL;
-
+const buildFilesProxy = proxyUtil.getBuildProxyUrl()
 if (!buildFilesProxy) {
   /*eslint-disable */
-  console.error('❗  ERROR! PLEASE SETUP THE BUILD_FILES_URL ENVIRONMENT VARIABLE');
-  process.exit(1);
+  console.error('❗  ERROR! PLEASE SETUP THE BUILD_FILES_URL ENVIRONMENT VARIABLE')
+  process.exit(1)
   /*eslint-enable */
 }
 
@@ -22,14 +20,12 @@ module.exports = (app) => {
    */
   app.use('/assets', proxy(buildFilesProxy, {
     filter: (req) => {
-      return req.method === 'GET';
+      return req.method === 'GET'
     },
     forwardPath: (req) => {
-      console.log(buildFilesProxy);
-      console.log(require('url').parse(req.url).path);
-      return require('url').parse(req.url).path;
+      return require('url').parse(req.url).path
     }
-  }));
+  }))
 
   /**
    * Proxy all GET requests from /static to where the static build files are located
@@ -47,4 +43,4 @@ module.exports = (app) => {
     }
   }));
   */
-};
+}
