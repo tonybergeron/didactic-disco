@@ -1,4 +1,5 @@
 var path = require('path')
+var pkg = require('../package.json')
 var autoprefixer = require('autoprefixer')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
@@ -8,45 +9,50 @@ var sassParams = [
   'includePaths[]=' + path.join(__dirname, '../node_modules')
 ]
 
-var config = {
-  context: path.join(__dirname, '../app'),
+module.exports = {
+  context: path.join(__dirname, '../client'),
+
   entry: {
-    dashboard: './dashboard/dashboard.jsx'
+    dashboard: './dashboard/index.jsx'
   },
+
   output: {
     path: path.join(__dirname, '../build'),
     publicPath: '/',
-    filename: '[name].bundle.js'
+    filename: '[name]-' + pkg.version + '.bundle.js'
   },
+
   module: {
-    loaders: [{
+    loaders: [{ // client js loader
       test: /\.js(x|)?$/,
-      include: path.join(__dirname, '../app'),
-      loader: 'babel-loader'
-    }, {
+      loader: 'babel-loader',
+      include: path.join(__dirname, '../client')
+    }, { // json loader, req'd for moment timezone
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, { // client styles
       test: /\.scss$/,
       include: [
-        path.join(__dirname, '../app'),
+        path.join(__dirname, '../client'),
         path.join(__dirname, '../node_modules')
       ],
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader?' + sassParams.join('&'))
     }, {
       test: /\.css$/,
       include: [
-        path.join(__dirname, '../app'),
+        path.join(__dirname, '../client'),
         path.join(__dirname, '../node_modules')
       ],
       loader: ExtractTextPlugin.extract('css-loader')
-    }, {
-      include: /\.json$/,
-      loaders: ['json-loader']
     }]
   },
+
   postcss: [
     autoprefixer
   ],
+
   resolve: {
-    root: path.join(__dirname, '../app'),
+    root: path.join(__dirname, '../client'),
     extensions: ['', '.js', '.json', '.jsx']
   }
 }
@@ -79,4 +85,3 @@ config.module.loaders.push({
 })
 */
 
-module.exports = config
