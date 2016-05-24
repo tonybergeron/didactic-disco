@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-var winston = require('winston');
-var path = require('path');
-var fs = require('fs');
+var winston = require('winston')
+var path = require('path')
+var fs = require('fs')
 
-winston.emitErrs = true;
+winston.emitErrs = true
 
-let logDir = path.join(__dirname + '/../../logs');
+let logDir = path.join(__dirname + '/../../logs')
 
 if (!fs.existsSync(logDir)) {
   // Create the directory if it does not exist
-  fs.mkdirSync(logDir);
+  fs.mkdirSync(logDir)
 }
 
 let logger = new winston.Logger({
@@ -39,37 +39,37 @@ let logger = new winston.Logger({
     })
   ],
   exitOnError: false
-});
+})
 
 logger.logResponseBody = (req, res, next) => {
-  let oldWrite = res.write;
-  let oldEnd = res.end;
+  let oldWrite = res.write
+  let oldEnd = res.end
 
-  var chunks = [];
+  var chunks = []
 
   res.write = (chunk) => {
-    chunks.push(chunk);
+    chunks.push(chunk)
 
-    oldWrite.apply(res, arguments);
-  };
+    oldWrite.apply(res, arguments)
+  }
 
   res.end = (chunk) => {
     if (chunk) {
-      chunks.push(chunk);
+      chunks.push(chunk)
     }
 
-    let body = Buffer.concat(chunks).toString('utf8');
-    logger.info(req.path, body);
+    let body = Buffer.concat(chunks).toString('utf8')
+    logger.info(req.path, body)
 
-    oldEnd.apply(res, arguments);
-  };
+    oldEnd.apply(res, arguments)
+  }
 
-  next();
-};
+  next()
+}
 
-module.exports = logger;
+module.exports = logger
 module.exports.stream = {
   write: (message) => {
-    logger.silly(message);
+    logger.silly(message)
   }
-};
+}
