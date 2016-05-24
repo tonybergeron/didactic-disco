@@ -12,7 +12,9 @@
     "dbLocation": "mongodb://localhost/didactic-disco"
   },
   "scripts": {
-    "lint": "eslint --ext .jsx app",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "eslint --ext .jsx,.js client",
+    "lint:server": "eslint --ext .js,.json server",
     "lint:fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
     "test": "echo 'no tests available' && exit 1",
