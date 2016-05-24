@@ -25,7 +25,7 @@ require('./config/mongoose')
 require('./config/express')(app, passport)
 
 // Proxy for Assets
-require('./config/proxy')(app);
+require('./config/proxy')(app)
 
 // Attach API Routes
 require('./routes-api/routes-api')(app, passport)

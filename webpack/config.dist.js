@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var base = require('./config')
+var pkg = require('../package.json')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var config = {
@@ -8,7 +9,7 @@ var config = {
   output: base.output,
   module: base.module,
   plugins: [
-    new ExtractTextPlugin('[name].style.css'),
+    new ExtractTextPlugin('[name]-' + pkg.version + '.style.css'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common'

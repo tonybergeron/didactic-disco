@@ -1,16 +1,18 @@
 import React, {Component, PropTypes} from 'react'
 import moment from 'moment-timezone'
+
 import './clock-face.scss'
 
-const fourOClock = '16';
+const fourOClock = '16'
 
 const rotate = (deg) => {
-  return 'rotate(' + deg + 'deg)';
+  return 'rotate(' + deg + 'deg)'
 }
 
 export default class ClockFaceComponent extends Component {
   constructor(props) {
     super(props)
+
     this.state = {}
     this.start = this.start.bind(this)
   }
@@ -20,10 +22,10 @@ export default class ClockFaceComponent extends Component {
   }
 
   start() {
-    var that = this;
-    that.setState({ date: moment().tz(that.props.offset) });
+    var that = this
+    that.setState({ date: moment().tz(that.props.offset) })
     setInterval(() => {
-      that.setState({ date: moment().tz(that.props.offset) });
+      that.setState({ date: moment().tz(that.props.offset) })
     }, 100)
   }
 
@@ -39,7 +41,7 @@ export default class ClockFaceComponent extends Component {
     let hourStyles = {transform: rotate(hour)}
 
     if (moment(this.state.date).format('HH') === fourOClock) {
-      const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16)
+      const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
       circleStyles.borderColor = randomColor
       secondStyles.background = randomColor
       minuteStyles.background = randomColor
@@ -66,4 +68,4 @@ export default class ClockFaceComponent extends Component {
 ClockFaceComponent.propTypes = {
   offset: PropTypes.string,
   location: PropTypes.string
-};
+}

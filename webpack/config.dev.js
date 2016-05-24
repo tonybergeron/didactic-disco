@@ -17,7 +17,7 @@ var config = {
   devtool: 'inline-source-map',
   module: base.module,
   plugins: [
-    new ExtractTextPlugin('[name].style.css'),
+    new ExtractTextPlugin('[name]-' + pkg.version + '.style.css'),
     // new webpack.optimize.DedupePlugin(), // Commented out due to causing issues in development with dependencies not being bundled correctly on rebuilds
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({

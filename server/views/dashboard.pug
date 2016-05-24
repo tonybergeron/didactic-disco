@@ -4,9 +4,9 @@ html.no-js(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width')
     title Clock
-    link(type='text/css', rel='stylesheet', media='all', href='assets/common.style.css')
-    link(type='text/css', rel='stylesheet', media='all', href='assets/dashboard.style.css')
+    link(type='text/css', rel='stylesheet', media='all', href='assets/common-' + version + '.style.css')
+    link(type='text/css', rel='stylesheet', media='all', href='assets/dashboard-' + version + '.style.css')
   body
     #app
-    script(src='assets/common.bundle.js')
-    script(src='assets/dashboard.bundle.js')
+    script(src='assets/common-' + version + '.bundle.js')
+    script(src='assets/dashboard-' + version + '.bundle.js')

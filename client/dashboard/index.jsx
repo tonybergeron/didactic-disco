@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, useRouterHistory} from 'react-router'
+
+import {useRouterHistory} from 'react-router'
 import {createHashHistory} from 'history'
+
+import Root from './components/root'
 
 /**
  * Remove the _k tag, unecessary for applications not using it
@@ -9,11 +12,8 @@ import {createHashHistory} from 'history'
  */
 const appHistory = useRouterHistory(createHashHistory)({queryKey: false})
 
-import App from './routes/index/index'
-import 'common/styles/app.scss'
+ReactDOM.render(
+  <Root history={appHistory} />,
+  document.getElementById('app')
+)
 
-ReactDOM.render((
-  <Router history={appHistory}>
-    <Route path="/" component={App}/>
-  </Router>
-), document.getElementById('app'))
