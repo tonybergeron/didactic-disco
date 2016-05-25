@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import {useRouterHistory} from 'react-router'
 import {createHashHistory} from 'history'
 
-import Root from './components/root'
+import Root from './components/root/root'
 
 /**
  * Remove the _k tag, unecessary for applications not using it
