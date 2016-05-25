@@ -1,50 +1,43 @@
 var path = require('path')
-var pkg = require('../package.json')
 var autoprefixer = require('autoprefixer')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-var sassParams = [
-  'outputStyle=expanded',
-  'includePaths[]=' + path.join(__dirname, '../app/common/styles'),
-  'includePaths[]=' + path.join(__dirname, '../node_modules')
-]
+var pkg = require('../../package.json')
 
 module.exports = {
-  context: path.join(__dirname, '../client'),
+  context: path.join(__dirname, '../../client'),
 
-  entry: {
-    dashboard: './dashboard/index.jsx'
-  },
+  entry: 'app.jsx',
 
   output: {
-    path: path.join(__dirname, '../build'),
+    path: path.join(__dirname, '../../build'),
     publicPath: '/',
-    filename: '[name]-' + pkg.version + '.bundle.js'
+    filename: 'app-' + pkg.version + '.bundle.js'
   },
 
   module: {
-    loaders: [{ // client js loader
+    loaders: [{
       test: /\.js(x|)?$/,
       loader: 'babel-loader',
-      include: path.join(__dirname, '../client')
-    }, { // json loader, req'd for moment timezone
+      include: path.join(__dirname, '../../client')
+    }, {
       test: /\.json$/,
       loader: 'json-loader'
-    }, { // client styles
-      test: /\.scss$/,
-      include: [
-        path.join(__dirname, '../client'),
-        path.join(__dirname, '../node_modules')
-      ],
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader?' + sassParams.join('&'))
     }, {
-      test: /\.css$/,
+      test: /\.(scss|css)$/,
       include: [
-        path.join(__dirname, '../client'),
-        path.join(__dirname, '../node_modules')
+        path.join(__dirname, '../../client'),
+        path.join(__dirname, '../../node_modules')
       ],
-      loader: ExtractTextPlugin.extract('css-loader')
+      loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass')
     }]
+  },
+
+  sassLoader: {
+    includePaths: [
+      path.join(__dirname, '../../client'),
+      path.join(__dirname, '../../node_modules')
+    ],
+    outputStyle: 'expanded'
   },
 
   postcss: [
@@ -52,7 +45,7 @@ module.exports = {
   ],
 
   resolve: {
-    root: path.join(__dirname, '../client'),
+    root: path.join(__dirname, '../../client'),
     extensions: ['', '.js', '.json', '.jsx']
   }
 }

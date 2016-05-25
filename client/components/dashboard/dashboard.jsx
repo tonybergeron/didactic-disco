@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import moment from 'moment-timezone'
 
-import * as TimeZoneConstants from 'common/constants/time-zones'
-import ClockFace from 'common/components/clock-face/clock-face'
+import * as TimeZoneConstants from 'constants/time-zones'
+import ClockFace from 'components/clock-face/clock-face'
 
 import './dashboard.scss'
 

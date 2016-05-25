@@ -1,12 +1,11 @@
-doctype html
-html.no-js(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width')
-    title Clock
-    link(type='text/css', rel='stylesheet', media='all', href='assets/common-' + version + '.style.css')
-    link(type='text/css', rel='stylesheet', media='all', href='assets/dashboard-' + version + '.style.css')
-  body
-    #app
-    script(src='assets/common-' + version + '.bundle.js')
-    script(src='assets/dashboard-' + version + '.bundle.js')
+extends ./layout.pug
+
+block header
+  title Clock
+
+block links
+  link(type='text/css', rel='stylesheet', media='all', href='assets/app-' + version + '.style.css')
+
+block scripts
+  script(src='assets/app-' + version + '.bundle.js')
+
