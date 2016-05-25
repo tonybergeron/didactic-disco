@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react'
 
 import {Router} from 'react-router'
-import getRoutes from '../routes/routes'
+import getRoutes from 'routes/routes'
 
-import 'common/styles/app.scss'
+import 'styles/app.scss'
 
 class Root extends Component {
   render() {

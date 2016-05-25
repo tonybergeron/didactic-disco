@@ -1,7 +1,7 @@
 var webpack = require('webpack')
-var base = require('./config')
-var pkg = require('../package.json')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var base = require('./config')
+var pkg = require('../../package.json')
 
 var config = {
   context: base.context,
@@ -17,12 +17,8 @@ var config = {
   devtool: 'inline-source-map',
   module: base.module,
   plugins: [
-    new ExtractTextPlugin('[name]-' + pkg.version + '.style.css'),
-    // new webpack.optimize.DedupePlugin(), // Commented out due to causing issues in development with dependencies not being bundled correctly on rebuilds
+    new ExtractTextPlugin('app-' + pkg.version + '.style.css'),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common'
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
   ],
