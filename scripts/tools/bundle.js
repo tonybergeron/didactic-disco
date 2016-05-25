@@ -9,21 +9,30 @@
 
 import q from 'q'
 import webpack from 'webpack'
-import webpackConfig from '../../webpack/config.dist.js'
+import webpackConfig from '../../client/webpack/config.dist.js'
 
 /**
  * Creates application bundles from the source files.
  */
-function bundleClient() {
-  return new q.Promise((resolve, reject) => {
+async function bundle() {
+  await new q.Promise((resolve, reject) => {
     webpack(webpackConfig).run((err, stats) => {
       if (err) {
         return reject(err)
       }
-      console.log('Built Successfully')
+      console.log('Client Files Built Successfully')
       return resolve()
     })
   })
+
+  const ncp = q.denodeify(require('ncp'))
+  await q.all([
+    ncp('server', 'build-server/server'),
+    ncp('package.json', 'build-server/package.json'),
+    ncp('Procfile', 'build-server/Procfile')
+  ]).then(() => {
+    console.log('Server Files Built Successfully')
+  });
 }
 
-export default bundleClient
+export default bundle

@@ -25,8 +25,7 @@
     "webpack-dev-server": "webpack-dev-server --colors --progress --hot --inline --config  client/webpack/config.dev.js --port 2992",
     "start": "NODE_ENV=development parallelshell 'npm run express-dev-server' 'npm run webpack-dev-server'",
     "build": "babel-node scripts/tools/run build",
-    "deploy-client": "babel-node scripts/tools/run deploy-client",
-    "deploy-server": "babel-node scripts/tools/run deploy-server"
+    "deploy": "babel-node scripts/tools/run deploy"
   },
   "dependencies": {
     "body-parser": "^1.15.0",

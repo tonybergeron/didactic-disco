@@ -7,6 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+import q from 'q'
 import GitRepo from 'git-repository';
 import run from './run';
 import fetch from './lib/fetch';
@@ -17,6 +18,7 @@ const getRemote = (slot) => ({
   name: `its-doge-oclock-somewhere`,
   url: `https://git.heroku.com/its-doge-oclock-somewhere.git`,
   website: `http://its-doge-oclock-somewhere.herokuapp.com`,
+  bucket: `its-doge-oclock-somewhere-dev-build`
 });
 
 /**
@@ -42,10 +44,28 @@ async function deployServer() {
 
   // Build the project in RELEASE mode which
   // generates optimized and minimized bundles
-  // process.argv.push('--release');
-  // await run(require('./build'));
+  process.argv.push('--release');
 
-  // Push the contents of the build folder to the remote server via Git
+  // Clean and Build the build folders, removing dead files, updating new files
+  await run(require('./build'));
+
+  // Push the contents of the Build folder to the remote AWS Server
+  await new q.Promise((resolve, reject) => {
+    const spawn = require('child_process').spawn
+
+    var command = spawn('sh', [ 'scripts/sync-folder-to-bucket.sh', 'build', remote.bucket], {});
+    command.stdout.on('data', function(data) {
+      console.log(data.toString())
+    });
+    command.stdout.on('exit', function(err) {
+      return reject(err)
+    });
+    command.stdout.on('close', function(data) {
+      return resolve()
+    });
+  })
+
+  // Push the contents of the build-server folder to the remote server via Git
   await repo.add('--all .');
   await repo.commit('Update');
   await repo.push(remote.name, 'master');

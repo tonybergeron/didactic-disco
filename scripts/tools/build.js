@@ -9,8 +9,7 @@
 
 import run from './run';
 import clean from './clean';
-import bundleClient from './bundle-client';
-import bundleServer from './bundle-server';
+import bundle from './bundle';
 
 /**
  * Compiles the project from source files into a distributable
@@ -18,8 +17,7 @@ import bundleServer from './bundle-server';
  */
 async function build() {
   await run(clean);
-  await run(bundleClient);
-  await run(bundleServer);
+  await run(bundle);
 }
 
 export default build;

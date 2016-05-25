@@ -14,8 +14,11 @@ import fs from './lib/fs';
  * Cleans up the output (build) directory.
  */
 async function clean() {
+  // Remove everything except any .git folders
   await del(['.tmp', 'build/*', '!build/.git'], { dot: true });
   await del(['.tmp', 'build-server/*', '!build-server/.git'], { dot: true });
+
+  // Create our build folders
   await fs.makeDir('build');
   await fs.makeDir('build-server');
 }
