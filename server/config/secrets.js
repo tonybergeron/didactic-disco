@@ -8,7 +8,7 @@ var pkg = require('../../package.json')
 
 module.exports = {
   // Find the appropriate database to connect to, default to localhost if not found.
-  db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || pkg.devConfig.dbLocation,
+  db: process.env.MONGOHQ_URL || process.env.MONGODB_URI || pkg.devConfig.dbLocation,
 
   // Session secret
   sessionSecret: process.env.SESSION_SECRET || 'the helicopter goes soi soi soi'
