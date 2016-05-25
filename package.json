@@ -73,11 +73,8 @@
     "nodemon": "^1.9.2",
     "parallelshell": "^2.0.0",
     "postcss-loader": "^0.9.1",
-<<<<<<< HEAD
     "q": "^1.4.1",
-=======
     "rimraf": "^2.5.2",
->>>>>>> eb403cb8355e4c0806d4ee3be596ac069b004c70
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
