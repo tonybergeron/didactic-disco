@@ -29,7 +29,7 @@ async function bundle() {
   await q.all([
     ncp('server', 'build-server/server'),
     ncp('package.json', 'build-server/package.json'),
-    ncp('Procfile', 'build-server/Procfile')
+    ncp('scripts/Procfile', 'build-server/Procfile')
   ]).then(() => {
     console.log('Server Files Built Successfully')
   });
