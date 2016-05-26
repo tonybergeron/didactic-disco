@@ -5,6 +5,7 @@
 1. [App Setup](#setup)
 1. [Uploading](#uploading)
 1. [Environment Variables](#environment-variables)
+1. [MongoDB](#mongo-db)
 1. [Piplines](#piplines)
 
 ## <a name="introduction"></a> Introduction
@@ -34,6 +35,19 @@ Later, these environment variables can be expanded to further differentiate envi
 	* KEY: `BUILD_FILES_URL`
 	* VALUE: `https://<bucket-name>.s3.amazonaws.com`
 
+## <a name="mongo-db"></a> MongoDB
+A MongoDB Server is expected for this example for session storage and further persistence.
+
+This can be riped out and replaced as needed.  It exists to serve as an example.
+
+** Setup mLab **
+
+* Go to your Heroku App
+* Click on the `Resources` Tab
+* Search Add-ons for 'mlab'
+* Select the `Sandbox - Free` item 
+* **Note: This will require a credit card be attached to the Heroku Account**
+	* If you don't need any persistence ever, just remove the `express-session` functionality and `mongo`/`mongoose` dependencies	
 
 ## <a name="piplines"></a> Piplines
 Heroku Pipelines allows Heroku apps to be linked together into deployment stages.
