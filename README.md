@@ -22,14 +22,14 @@ With a few tweaks this starting point can be enhanced to accomodate:
 ## <a name="use-cases"></a> Intended Use Cases
 Not every solution requires this much
 
-** What this solution is good for: **
+**What this solution is good for:**
 
 * A single Git repo
 * Full stack development
 * A project with little to no DevOps 
 * A set of defined environments (example: dev, uat, demo, prod)
 
-** What this solution is not good for: **
+**What this solution is not good for:**
 
 * No API or Server side code necessary
 	* Just have a client app? Use [API Gateway](https://aws.amazon.com/api-gateway/)

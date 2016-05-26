@@ -40,7 +40,7 @@ A MongoDB Server is expected for this example for session storage and further pe
 
 This can be riped out and replaced as needed.  It exists to serve as an example.
 
-** Setup mLab **
+**Setup mLab**
 
 * Go to your Heroku App
 * Click on the `Resources` Tab

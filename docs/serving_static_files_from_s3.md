@@ -30,7 +30,9 @@ This bucket must be at the root level because of how the folder structure is org
 ### <a name="cors"></a> CORS
 Browsers restrict cross-origin HTTP requests across domains unless explicitly allowed.  We need to setup our S3 Bucket to allow other domains to acces our contents.
 
-`**To Update your Bucket's CORS**: Click Bucket > Properties > Permissions > Edit CORS Configuration > Copy and Paste the below code`
+**To Update your Bucket's CORS:**
+
+`Click Bucket > Properties > Permissions > Edit CORS Configuration > Copy and Paste the below code`
 
 ~~~~
 <?xml version="1.0" encoding="UTF-8"?>
