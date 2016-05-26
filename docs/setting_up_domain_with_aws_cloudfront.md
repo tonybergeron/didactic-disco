@@ -19,6 +19,8 @@ This gives us the flexibility to have a standardized and configurable entrypoint
 ## <a name="domain"></a> Domain: AWS Route 53
 We need a Domain to use to be our entry point.  You should go with [AWS Route 53] as the SSL Certificates and Cloudfront will be expecting to be using it.  AWS works well when you use everything from the same ecosystem
 
+### Instructions to Purchase a Domain
+
 0. Go to [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/)
 0. Buy a domain
 	2.  The standard option is `.com` is $12 each for the year
@@ -29,7 +31,7 @@ We need a Domain to use to be our entry point.  You should go with [AWS Route 53
 ## <a name="ssl"></a> SSL Certs: AWS Certificate Manager
 We need to create an SSL Certificate that will authorize communication under specific domains and subdomains of our choosing. 
 
-This process in AWS could not be simpler. 
+### Instructions to Create an SSL Cert
 
 0. Go to [https://console.aws.amazon.com/acm/home](https://console.aws.amazon.com/acm/home)
 	1. Its not super important but stay in the same region for all of your configuration, including your S3 Bucket setup
@@ -45,7 +47,7 @@ Be as specific or non-specific as you want with these patterns.
 
 The individual example above should suffice for most setups, but you could get fancy with setting up multiple environments under one domain.
 
-Example:
+**Example:**
 
 1. Development Cert
 	1. `dev.my-domain.com`
@@ -61,19 +63,23 @@ Example:
 
 *Note: be sure to have a Heroku application domain already created*
 
+*Note: be sure to have a the SSL Certificates for the domains to be proxied already created*
+
 We need to Connect our Heroku Origin with our Domain. This will allow users to go to our purchased domain (`my-domain.com`) but actually be proxying through it to the heroku app's location at `my-app.herokuapp.com`
 
 We are setting:0. Origin Settings (information about the Server we want to proxy to)
 0. Behavior Settings (forwarding query strings and headers, defaulting to https, etc...)
 0. Distribution Settings (CNAMES to distribute to, SSL Certs)
 
-** Instructions **
+### Instructions to Setup Cloudfront Distribution
 
+* Go To: [https://console.aws.amazon.com/cloudfront](https://console.aws.amazon.com/cloudfront)
 * Origin Settings
 	0. Origin Domain Name: Domain of the Heroku App
-		1. Example: `my-app.herokuapp.com`
+		1. Example: `my-heroku-app.herokuapp.com`
 	0. Origin Path: (leave empty)
 	1. Origin ID: (automatically defined)
+	0. Restrict Bucket Access: No
 	2. Origin SSL Protocols (default)
 		0. TLSv1.2: Checked
 		0. TLSv1.1: Checked
@@ -88,24 +94,39 @@ We are setting:0. Origin Settings (information about the Server we want to pro
 * Default Cache Behavior Settings
 	8. Path Pattern: Default (*)
 	0. Viewer Protocol Policy
+		0. Redirect HTTP to HTTPS
 	0. Allowed HTTP Methods
+		0. GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
 	0. Cached HTTP Methods
+		0. Unchecked (default)
 	0. Forward Headers
-	0. Object Caching
-	0. Minimum TTL
-	0. Maximum TTL
-	0. Default TTL
-	0. Forward Cookies
-	0. Forward Query Strings
-	0. Smooth Streaming
-	0. Restrict Viewer Access
-	0. Compress Objects Automatically
+		0. All
+	0. Object Caching: Use Origin Cache Headers (default)
+	0. Minimum TTL: 0 (default)
+	0. Maximum TTL: 31536000 (default)
+	0. Default TTL: 86400 (default)
+	0. Forward Cookies: All
+	0. Forward Query Strings: Yes
+	0. Smooth Streaming: No (default)
+	0. Restrict Viewer Access: No (default)
+	0. Compress Objects Automatically: No (default)
 * Distribution Settings
-	0. Price Class
-	0. AWS WAF Web ACL
+	0. Price Class: Use All Edge Locations (default)
+	0. AWS WAF Web ACL: None
 	0. Alternate Domain Names (CNAMEs)
+		0. Enter the CNAMES that should route
+		0. (these should be similar if not the same that had SSL Certs created for them)
+		0. Example: 
+			0. `my-domain.com`
+			0. `*.my-domain.com`
 	0. SSL Certificates
-	0. Custom SSL Client Support
+		0. Select radio button: Custom SSL Certificate
+		0. Dropdown: Select SSL Certificate created for this domain in the previous steps
+	0. Default Root Object: <blank> (default)
+	0. Logging: Off (default)
+	0. Comment: <Insert comment about the environment this Cloudfront is for>
+		0. Example: My App Heroku
+	0. Distribution State: Enabled (default)
 
 
 ## <a name="dns"></a> DNS Record Set: AWS Route 53
@@ -113,10 +134,16 @@ Now that we have a CloudFront Distribution connecting our Heroku Origin with our
 
 0. Connect the domain AND any subdomains under it by setting a wildcard of * 
 	1. Remember to Select Alias	0. Select the `CloudFront distribution` created for this domain
-Example Steps:
-0. Name: `*.my-domain.com`0. Type: IPv4 address0. Alias: Yes
-0. Alias Target: *Cloudfront distributions* > *.my-domain.com
-1. Save it
+### Instructions to Update DNS Record Set
+
+0. Go To: [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/)
+0. Registered Domains > Select Domain > Manage DNS > Select Domain Name > Go to Record Sets
+0. Domain: `my-domain.com`
+	0. Name: `my-domain.com`	0. Type: IPv4 address	0. Alias: Yes
+	0. Alias Target: *Cloudfront distributions* > my-domain.com
+	1. Save it0. Domain: `*.my-domain.com`	0. Name: `*.my-domain.com`	0. Type: IPv4 address	0. Alias: Yes
+	0. Alias Target: *Cloudfront distributions* > *.my-domain.com
+	1. Save it
 
 When completed, you should see in the table a new entry for this with the name that was entered, of type A, and the value as an ALIAS to the cloudfront distribution unique code
 
