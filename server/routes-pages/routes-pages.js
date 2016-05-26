@@ -9,7 +9,7 @@ module.exports = (app) => {
   /**
    * LOGIN PAGE ROUTE
    */
-  app.get(pagesConfig.dashboard.url, (req, res) => {
+  app.get('/', (req, res) => {
     res.render(viewsConfig.dashboard, {
       version: pkg.version
     })

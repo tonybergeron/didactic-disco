@@ -63,8 +63,8 @@ Here is some more documentation that will help guide you through how each area o
 0. [Local DevOps Setup](docs/local_devops_setup.md)
 0. [Serving Static Files from S3](docs/serving_static_files_from_s3.md)
 0. [Setting Up Heroku](docs/setting_up_heroku.md)
-0. [Setting Up a Domain with AWS
-0. [Deploying App](docs/deploying_app.md) Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
+0. [Setting Up a Domain with AWS Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
+0. [Deploying App](docs/deploying_app.md)
 0. [Tech](docs/tech.md)
 
 

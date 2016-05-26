@@ -15,10 +15,10 @@ import fetch from './lib/fetch';
 // TODO: Update deployment URL
 // For more information visit http://gitolite.com/deploy.html
 const getRemote = (slot) => ({
-  name: `its-doge-oclock-somewhere`,
-  url: `https://git.heroku.com/its-doge-oclock-somewhere.git`,
-  website: `http://its-doge-oclock-somewhere.herokuapp.com`,
-  bucket: `its-doge-oclock-somewhere-dev-build`
+  name: `ancient-falls-46347`,
+  url: `https://git.heroku.com/ancient-falls-46347.git`,
+  website: `http://ancient-falls-46347.herokuapp.com`,
+  bucket: `brownbag-bucket-dev-build`
 });
 
 /**
