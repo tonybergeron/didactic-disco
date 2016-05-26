@@ -2,6 +2,7 @@
 
 ## Table of Contents
 0. [Introduction](#introduction)
+0. [Intended Use Cases](#use-cases)
 0. [Quick Setup](#quick-setup)
 0. [Documentation](#documentation)
 0. [Authors](#authors)
@@ -17,6 +18,23 @@ With a few tweaks this starting point can be enhanced to accomodate:
 0. Koa instead of Express 4.0
 0. PostgreSQL instead of Mongo
 0. Multiple environments
+
+## <a name="use-cases"></a> Intended Use Cases
+Not every solution requires this much
+
+** What this solution is good for: **
+
+* A single Git repo
+* Full stack development
+* A project with little to no DevOps 
+* A set of defined environments (example: dev, uat, demo, prod)
+
+** What this solution is not good for: **
+
+* No API or Server side code necessary
+	* Just have a client app? Use [API Gateway](https://aws.amazon.com/api-gateway/)
+* Massive and Complex environment architectures
+
 
 ## <a name="quick-setup"></a> Quick Setup
 0. [Install Node]
@@ -45,6 +63,7 @@ Here is some more documentation that will help guide you through how each area o
 0. [Setting Up a Domain with AWS Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
 0. [Setting Up Heroku](docs/setting_up_heroku.md)
 0. [Deploying App](docs/deploying_app.md) 
+0. [Tech](docs/tech.md) 
 
 
 ## <a name="authors"></a> Authors
