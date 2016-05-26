@@ -21,14 +21,14 @@ Create a bucket at the root level at [https://console.aws.amazon.com/s3/home](ht
 0. Name the Bucket (alphanumberic and dashes only)
 	0. Example: `bucket-name-dev-build`
 0. Select a Region
-	0. Oregon is always a solid choice.  Try to stay consitent with this
+	0. Oregon is always a solid choice.  Try to stay consistent with this
 	0. Gotcha Note: If you have other AWS services restricted to specific regions, be sure to have all of these services within the same Region
 
 
 This bucket must be at the root level because of how the folder structure is organized and served to clients.  This also makes it easier to tear down and rebuild or buckets
 
 ### <a name="cors"></a> CORS
-Browsers restrict cross-origin HTTP requests across domains unless explicitly allowed.  We need to setup our S3 Bucket to allow other domains to acces our contents.
+Browsers restrict cross-origin HTTP requests across domains unless explicitly allowed.  We need to setup our S3 Bucket to allow other domains to access our contents.
 
 **To Update your Bucket's CORS:**
 
@@ -41,7 +41,7 @@ Browsers restrict cross-origin HTTP requests across domains unless explicitly al
     <AllowedOrigin>*</AllowedOrigin>
     <AllowedMethod>GET</AllowedMethod>
   </CORSRule>
-</CORSConfiguration> 
+</CORSConfiguration>
 ~~~~
 
 These CORS properties can be expanded on to allow only specific domains to be allowed to un-restricted

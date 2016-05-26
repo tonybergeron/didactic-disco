@@ -11,7 +11,7 @@
 ## <a name="introduction"></a> Introduction
 This is meant to be a quickstart/inspirational boiler plate to get your client application and server application hosted on S3 and Heroku.  
 
-With a few tweaks this starting point can be enhanced to accomodate:
+With a few tweaks this starting point can be enhanced to accommodate:
 
 0. Multiple Single Page Application entry points
 0. Bootstrap or other client side vendor libraries
@@ -59,11 +59,11 @@ Not every solution requires this much
 ## <a name="documentation"></a> Documentation
 Here is some more documentation that will help guide you through how each area of the devops process is setup and what it is doing.
 
-0. [Webpack Rundown](docs/webpack.md)
-0. [Local DevOps Setup](docs/local_devops_setup.md)
-0. [Serving Static Files from S3](docs/serving_static_files_from_s3.md)
-0. [Setting Up Heroku](docs/setting_up_heroku.md)
-0. [Setting Up a Domain with AWS Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
+0. [Understanding Webpack](docs/webpack.md)
+0. [Local DevOps Credential Setup](docs/local_devops_setup.md)
+0. [Client Assets: Serving Static Files from S3](docs/serving_static_files_from_s3.md)
+0. [Server Hosting: Setting Up Heroku](docs/setting_up_heroku.md)
+0. [Putting it all behind a Domain: Domains, SSL, and AWS Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
 0. [Deploying App](docs/deploying_app.md)
 0. [Tech](docs/tech.md)
 
