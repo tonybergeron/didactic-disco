@@ -32,6 +32,7 @@
 
 
 ## <a name="documentation"></a> Documentation### <a name="jsdoc"></a> JSDoc￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼Commenting format for methods
+
 ￼[￼http://usejsdoc.org/](http://usejsdoc.org/)
 ## <a name="frontend-technologies"></a> Frontend Technologies### <a name="webpack"></a> WebpackWebpack is the module bundler for the front-end application static files. Grunt and Gulp are similar technologies.
 Don't worry about not understanding this fully, look at the current implementation can't you should get a feel for what every part is trying to do. Don't worry about knowing everything about it right away.
