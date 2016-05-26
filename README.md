@@ -26,8 +26,10 @@ Not every solution requires this much
 
 * A single Git repo
 * Full stack development
-* A project with little to no DevOps 
-* A set of defined environments (example: dev, uat, demo, prod)
+* JavaScript on the Frontend and Backend
+* Rapid local development environment
+* A project with little to no dedicated DevOps personnel
+* A set of defined/expected environments (example: dev, uat, demo, prod)
 
 **What this solution is not good for:**
 
@@ -55,15 +57,15 @@ Not every solution requires this much
 
 
 ## <a name="documentation"></a> Documentation
-Here is some more documentation that will help guide you through how each area of the devops process is setup and what it is doing. 
+Here is some more documentation that will help guide you through how each area of the devops process is setup and what it is doing.
 
 0. [Webpack Rundown](docs/webpack.md)
 0. [Local DevOps Setup](docs/local_devops_setup.md)
 0. [Serving Static Files from S3](docs/serving_static_files_from_s3.md)
 0. [Setting Up Heroku](docs/setting_up_heroku.md)
-0. [Setting Up a Domain with AWS Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
-0. [Deploying App](docs/deploying_app.md) 
-0. [Tech](docs/tech.md) 
+0. [Setting Up a Domain with AWS
+0. [Deploying App](docs/deploying_app.md) Cloudfront](docs/setting_up_domain_with_aws_cloudfront.md)
+0. [Tech](docs/tech.md)
 
 
 ## <a name="authors"></a> Authors
