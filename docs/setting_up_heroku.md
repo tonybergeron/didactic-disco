@@ -61,4 +61,4 @@ This is very handy if you want to promote the exact code from UAT to Production 
 
 Example Script is located at `scripts/promote-staging-to-prod.sh`
 
-[Deploying App]: (deploying_app.md)
+[Deploying App]: deploying_app.md
