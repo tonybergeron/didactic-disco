@@ -51,7 +51,11 @@ More information on [CORS]
 
 
 ## <a name="access"></a> Accessing Files
-Upload a test file (through the 'Actions' option).  If things are setup correctly you should be able to access your file at:
+Upload a test file (through the 'Actions' option).
+
+0. Select File > Properties > Permissions >  Add More Permissions > Add Grantee "Everyone" > Allow to Open/Download
+
+If things are setup correctly you should be able to access your file at:
 
 0. `https://<bucket-name>.s3.amazonaws.com/<testfile.extention>`
 

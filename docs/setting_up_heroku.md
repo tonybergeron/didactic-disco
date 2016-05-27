@@ -45,9 +45,9 @@ This can be riped out and replaced as needed.  It exists to serve as an example.
 * Go to your Heroku App
 * Click on the `Resources` Tab
 * Search Add-ons for 'mlab'
-* Select the `Sandbox - Free` item 
+* Select the `Sandbox - Free` item
 * **Note: This will require a credit card be attached to the Heroku Account**
-	* If you don't need any persistence ever, just remove the `express-session` functionality and `mongo`/`mongoose` dependencies	
+	* If you don't need any persistence ever, just remove the `express-session` functionality and `mongo`/`mongoose` dependencies
 
 ## <a name="piplines"></a> Piplines
 Heroku Pipelines allows Heroku apps to be linked together into deployment stages.
@@ -57,8 +57,8 @@ More information at [https://devcenter.heroku.com/articles/pipelines](https://de
 ### Pipelines Promotion Script Template
 There is already a template script that can be utilized to promote the Client files from one AWS bucket to another, and promote a Heroku Slug from one Heroku app to another
 
-This is very handy if you want to promote the exact code from UAT to Production and do not want to perform a rebuild of your code. 
+This is very handy if you want to promote the exact code from UAT to Production and do not want to perform a rebuild of your code.
 
 Example Script is located at `scripts/promote-staging-to-prod.sh`
 
-[Deploying App]:(docs/deploying_app.md)
+[Deploying App](docs/deploying_app.md)
